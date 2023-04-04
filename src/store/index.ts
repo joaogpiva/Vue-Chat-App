@@ -4,7 +4,8 @@ import { auth } from '@/firebase'
 import { 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut 
+  signOut,
+  updateProfile
 } from 'firebase/auth'
 import createPersistedState from 'vuex-persistedstate'
 
@@ -40,6 +41,11 @@ export default createStore({
     async register({ commit }, details){
       try {
         await createUserWithEmailAndPassword(auth, details.email, details.password);
+        console.log(auth.currentUser!.email);
+        await updateProfile(auth.currentUser!, {
+          displayName: details.name
+        })
+        console.log("recebemo: " + details.name + " e foi colcoado: " + auth.currentUser!.displayName)
       } catch(e) {
         console.log(e);
       }
