@@ -6,8 +6,12 @@ import {
   signInWithEmailAndPassword,
   signOut 
 } from 'firebase/auth'
+import createPersistedState from 'vuex-persistedstate'
 
 export default createStore({
+  plugins: [createPersistedState({
+    storage: window.sessionStorage,
+  })],
   state: {
     user: null
   },
@@ -19,6 +23,7 @@ export default createStore({
     },
     CLEAR_USER(state){
       state.user = null;
+      sessionStorage.clear();
     }
   },
   actions: {

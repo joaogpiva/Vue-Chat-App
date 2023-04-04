@@ -3,7 +3,6 @@
       Home screen!
       You are logged in as {{ user.email }}
       <button @click="logout()">Log out</button>
-      <button @click="testUser()">test here</button>
     </div>
 </template>
 
@@ -20,9 +19,6 @@ export default defineComponent({
   methods: {
     logout(){
       authStore.dispatch('logout');
-    },
-    testUser(){
-      alert(this.user.email);
     }
   },
   mounted(){
