@@ -8,7 +8,7 @@
                 <input class="form-control" type="password" v-model="password" placeholder="Your password">
             </div>
             <div class="p-3">
-                <button class="btn btn-primary" v-if="!isLoading" @click="register(email, password)">Create account</button>
+                <button class="btn btn-primary" v-if="!isLoading" @click="register()">Create account</button>
                 <button class="btn btn-outline-primary" v-else disabled>Loading...</button>
             </div>
         </LoginRegisterCard>
@@ -30,7 +30,7 @@ export default defineComponent({
         return data;
     },
     methods: {
-        async register(email: string, password: string){
+        async register(){
             this.isLoading = true;
             await authStore.dispatch('register', {
                 email: this.email,

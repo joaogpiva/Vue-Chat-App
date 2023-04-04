@@ -8,7 +8,7 @@
                 <input class="form-control" type="password" v-model="password" placeholder="Your password">
             </div>
             <div class="p-2">
-                <button class="btn btn-primary" v-if="!isLoading" @click="login(email, password)">Log in</button>
+                <button class="btn btn-primary" v-if="!isLoading" @click="login()">Log in</button>
                 <button class="btn btn-outline-primary" v-else disabled>Loading...</button>
             </div>
             <div class="p-2">
@@ -33,7 +33,7 @@ export default defineComponent({
         return data;
     },
     methods: {
-        async login(email: string, password: string){
+        async login(){
             this.isLoading = true;
             console.log("carregano: " + this.isLoading);
             await authStore.dispatch('login', {
