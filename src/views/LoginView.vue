@@ -35,7 +35,6 @@ export default defineComponent({
     methods: {
         async login(){
             this.isLoading = true;
-            console.log("carregano: " + this.isLoading);
             await authStore.dispatch('login', {
                 email: this.email,
                 password: this.password
