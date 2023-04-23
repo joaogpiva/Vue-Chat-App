@@ -9,7 +9,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: rgb(151, 217, 219);
+  background: url("@/assets/wallpaper_light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
 }
 </style>
