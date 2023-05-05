@@ -1,11 +1,9 @@
 <template>
     <div class="d-flex flex-column align-items-center justify-content-center" style="height: 100%;">
-        <div class="flex-grow-1" style="width: 100%;">
-            <ul>
-                <li v-for="(m, index) in messages" :key="index">
-                    {{ index }} - {{ m.authorName }}, {{ m.content }}
-                </li>
-            </ul>
+        <div class="flex-grow-1 overflow-auto" style="width: 100%;">
+            <li v-for="(m, index) in messages" :key="index">
+                <ChatMessage :text-content="m.content" :author-name="m.authorName" :timestamp="m.timestamp" />
+            </li>
         </div>
         <div class="d-flex flex-row" style="height: 10%; width: 100%;">
             <div class="p-2 flex-grow-1">
@@ -20,12 +18,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import ChatMessage from './ChatMessage.vue';
 import authStore from '@/store';
 import { database } from '@/firebase';
 import { ref, set, onValue } from "firebase/database";
 
 export default defineComponent({
     name: 'ChatWindow',
+    components: {
+        ChatMessage
+    },
     data(){
         type messageObj = { authorId: string, authorName: string, timestamp: string, content: string };
         const data : { messages: messageObj[], currentMessage: string, currentUser: any } = 
