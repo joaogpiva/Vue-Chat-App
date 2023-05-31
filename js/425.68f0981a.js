@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_chat_app"]=self["webpackChunkvue_chat_app"]||[]).push([[425],{5425:function(e,n,t){function a(e,n,t,a,r,u){return" Loading... "}t.r(n),t.d(n,{default:function(){return s}});var r=t(3396),u=t(7627),c=(0,r.aZ)({name:"RedirectorView",mounted(){u.Z.dispatch("fetchUser")}}),i=t(89);const p=(0,i.Z)(c,[["render",a]]);var s=p}}]);
+//# sourceMappingURL=425.68f0981a.js.map
